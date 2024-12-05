@@ -14,7 +14,7 @@ $ cd simSDF
 $ git checkout coppeliasim-v4.5.0-rev0
 $ mkdir -p build && cd build
 $ cmake -DCMAKE_BUILD_TYPE=Release ..
-$ cmake --build .
+$ cmake --build .  --config Release
 $ cmake --install .
 ```
 
