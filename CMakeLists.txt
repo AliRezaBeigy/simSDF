@@ -21,7 +21,7 @@ else()
         set(EP_COMMON_CMAKE_ARGS "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
     endif()
     ExternalProject_Add(ext-gz-cmake
-        URL https://github.com/gazebosim/gz-cmake/archive/refs/tags/gz-cmake3_3.0.0.tar.gz
+        URL https://github.com/gazebosim/gz-cmake/archive/refs/tags/gz-cmake3_3.5.3.tar.gz
         CMAKE_ARGS
             ${EP_COMMON_CMAKE_ARGS}
             -DCMAKE_INSTALL_PREFIX=${GZLIBS_INSTALL_PREFIX}
@@ -62,7 +62,7 @@ else()
     )
     ExternalProject_Add(ext-sdformat
         DEPENDS ext-gz-math
-        URL https://github.com/gazebosim/sdformat/archive/refs/tags/sdformat13_13.0.1.tar.gz
+        URL https://github.com/gazebosim/sdformat/archive/refs/tags/sdformat13_13.9.0.tar.gz
         CMAKE_ARGS
             ${EP_COMMON_CMAKE_ARGS}
             -DCMAKE_INSTALL_PREFIX=${GZLIBS_INSTALL_PREFIX}
@@ -95,6 +95,7 @@ if(NOT USE_SYSTEM_GZLIBS)
 endif()
 
 coppeliasim_generate_stubs(${CMAKE_CURRENT_BINARY_DIR}/generated XML_FILE ${CMAKE_CURRENT_SOURCE_DIR}/sourceCode/callbacks.xml LUA_FILE ${CMAKE_CURRENT_SOURCE_DIR}/lua/simSDF.lua)
+# coppeliasim_generate_stubs(generated XML_FILE ../sourceCode/callbacks.xml LUA_FILE ../lua/simSDF.lua)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/sourceCode/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
